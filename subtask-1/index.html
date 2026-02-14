@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+
+    <h2>Todo List</h2>
+
+    <!-- DATE FILTER -->
+    <div class="filter">
+      <label>Creation Date:</label><br />
+      <input type="date" id="fromDate">
+      <input type="date" id="toDate">
+      <button onclick="applyDateFilter()">Apply</button>
+      <button onclick="resetDateFilter()">Reset</button>
+    </div>
+
+    <!-- SORT HEADER -->
+    <div class="list-header">
+      <span class="col name" onclick="sortByName()">
+        Name <span id="nameArrow">⌄</span>
+      </span>
+      <span class="col date" onclick="sortByCreationDate()">
+        Creation Date <span id="dateArrow">⌄</span>
+      </span>
+    </div>
+
+    <!-- TODO LIST -->
+    <div id="todo-list"></div>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+    <h3>Edit Todo</h3>
+    <textarea id="description"></textarea><br />
+    <button onclick="updateDescription()">Update</button>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

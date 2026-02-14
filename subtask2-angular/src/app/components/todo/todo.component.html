@@ -1,0 +1,32 @@
+<div class="controls">
+  <input type="date" [(ngModel)]="fromDate" (change)="applyFilter()" />
+  <input type="date" [(ngModel)]="toDate" (change)="applyFilter()" />
+
+  <select [(ngModel)]="sortBy" (change)="applyFilter()">
+    <option value="title">Sort by Description</option>
+    <option value="date">Sort by Creation Date</option>
+  </select>
+</div>
+
+<div class="header">
+  <span>Description</span>
+  <span>Date</span>
+</div>
+
+<div
+  class="row"
+  *ngFor="let todo of todos$ | async"
+  (click)="selectTodo(todo)"
+>
+  <span>{{ todo.title }}</span>
+  <span>{{ todo.createdAt | date:'MMM dd, yyyy' }}</span>
+</div>
+
+<div *ngIf="selectedTodo" class="sidebar">
+  <h3>Edit Todo</h3>
+
+  <textarea [(ngModel)]="selectedTodo.title"></textarea>
+
+  <button (click)="saveEdit()">Save</button>
+</div>
+
